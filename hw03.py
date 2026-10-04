@@ -1,6 +1,6 @@
 """
-Name: (put your name here)
-Peers: (add any collaborators)
+Name: Loke
+Peers: None
 References: (anything you checked to solve this)
 """
 
@@ -29,7 +29,23 @@ def read_five_ints():
         # check if the int is not in the interval [0 to 10] print error
         # add the int to grades at index idx
 
-        pass
+        user_input = input("Give me the next grade in [0 to 10]:")
+        
+        if not user_input.isdigit():
+            print("Error in read_five_ints: input string is not for an integer")
+            exit()
+        
+        grade = int(user_input)
+        
+        if grade > 10 or grade < 0:
+                print("Error in read_five_ints: input integer outside of range")
+                exit()
+                
+        grades[idx] = grade
+                
+               
+            
+            
 
     #Anything with this indentation is NO LONGER inside the loop
 
@@ -45,7 +61,27 @@ def pick_averaging_method():
     Any other input prints
     'Error in pick_averaging_method: incorrect option picked'.
     """
-    pass
+    user_input = input("Pick 'a' for mean, 'b' for median, 'c' for mode: ")
+    if user_input == "a":
+        print("picked: Mean")
+        avg = statistics.mean(grades)
+        return avg
+    
+    elif user_input == "b":
+        print("picked: Median")
+        avg = statistics.median(grades)
+        return avg
+    
+    elif user_input == "c":
+        print("picked: Mode")
+        avg = statistics.mode(grades)
+        return avg
+    
+    else:
+        print("Error in pick_averaging_method: incorrect option picked")
+        exit()
+        
+       
 
 # Task 3:
 #  Complete the function "pick_visualization" below:
@@ -58,7 +94,16 @@ def pick_visualization(average):
     Any other input prints
     'Error in pick_visualization: incorrect option picked'.
     """
-    pass
+    user_input = input("Pick '1' for print average, or '2' for plot average: ")
+    if user_input == "1":
+        print_list_and_average(average)
+    elif user_input =="2":
+        plot_grades(average)
+    else:
+        print("Error in pick_visualization: incorrect option picked" )
+        exit()
+        
+        
 
 
 # ---------------------------------------
